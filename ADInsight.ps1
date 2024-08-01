@@ -20,12 +20,12 @@ Write-Output "Status: 200 OK"
 
 # Start the while loop
 while ($true) {
-    Write-Output "1. Get Domain Controller Info"
-    Write-Output "2. Get ADGroup Info"
-    Write-Output "3. Get ADGroupMember Info"
-    Write-Output "4. Get Kerberoastable Accounts"
-    Write-Output "5. Get ASReproastable Accounts"
-    Write-Output "6. Get All Computer Accounts"
+    Write-Output "1. Domain Controller Info"
+    Write-Output "2. Groups Info"
+    Write-Output "3. Group Members Info"
+    Write-Output "4. Kerberoastable Accounts"
+    Write-Output "5. ASReproastable Accounts"
+    Write-Output "6. All Computer Accounts Info"
     Write-Output "   Press Ctrl+C to exit"
 
     # Prompt user for input
