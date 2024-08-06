@@ -111,7 +111,6 @@ while ($true) {
         '5' {
             
             Write-Output "Note: User accounts with the flag set 'Do not require Kerberos preauthentication' can expose service account password. To get more info, visit: https://medium.com/@haidershahzeb08/as-rep-roasting-74a958b1bedf"
-            Wrt
             Write-Output "Fetching ASReprostable Accounts Info..."
             $ASreproastable = Get-ADUser -Filter * -Properties DoesNotRequirePreAuth | Where-Object { $_.DoesNotRequirePreAuth -eq $true}
             Write-Output $ASreproastable
