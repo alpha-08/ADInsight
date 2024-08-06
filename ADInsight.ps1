@@ -116,7 +116,7 @@ while ($true) {
             Write-Output $ASreproastable
         }
         '6' {
-            Write-Bold "For details press 'd' or press Enter to go with only account names"
+            Write-Bold "Press 'd' for detailed info about all computers or Enter specific computer Name"
             $compAccCondition=Read-Host -Prompt ">"
              
              Write-Output " "
@@ -126,9 +126,9 @@ while ($true) {
                 $computerAccounts=Get-ADComputer -Filter * -Properties *
                 Write-Output $computerAccounts > allCompAccounts.txt
                 Write-Output "All computer accounts information is saved to disk as 'allCompAccounts.txt'"
+                Write-Output " "
             } else {
-            $singleCompName=Read-Host -Prompt "Enter Computer Name"
-            $basicInfoComps=Get-ADComputer -Filter {Name -eq $singleCompName} -Properties *
+            $basicInfoComps=Get-ADComputer -Filter {Name -eq $compAccCondition} -Properties *
             Write-Output $basicInfoComps
             }
 
