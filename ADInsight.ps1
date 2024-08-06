@@ -89,7 +89,7 @@ while ($true) {
             Write-Output $groupMembers
         }
         '4' {
-             Write-Bold "For details press 'd' or press Enter to go with only account names"
+             Write-Bold "For details press 'd' OR press Enter to go with only account names"
              $condition=Read-Host -Prompt ">"
              
              Write-Output " "
@@ -116,7 +116,7 @@ while ($true) {
             Write-Output $ASreproastable
         }
         '6' {
-            Write-Bold "Press 'd' for detailed info about all computers or Enter specific computer Name"
+            Write-Bold "Press 'd' for detailed info about all computers OR Enter specific computer Name"
             $compAccCondition=Read-Host -Prompt ">"
              
              Write-Output " "
@@ -133,12 +133,12 @@ while ($true) {
             }
 
             Write-Output " "
-            Write-Output "Note: Put the notes here for ASReproasting"
+            Write-Output " "
 
         Write-Output " "
         }
         '7' {
-            Write-Bold "For all user account details press 'd' or enter specific user name"
+            Write-Bold "Press 'd' for all users account details OR enter specific user name"
             $userAccCondition=Read-Host -Prompt ">"
              
              Write-Output " "
@@ -158,13 +158,13 @@ while ($true) {
         Write-Output " "
         }
         '8' {
-            Write-Bold "To get a list of all Windows Servers, press 'A' or enter specific version '2008, 2012, 2016 etc"
+            Write-Bold "Press 'A' to get a list of all Windows Servers OR enter specific version i.e., 2008, 2012, 2016 .."
             $allServers=Read-Host -Prompt ">"
              
              Write-Output " "
 
             if ($allServers -eq 'A') {
-                Write-Bold "Fetching basic information about all available windows servers i.e., 2008, 2012, 2016 etc"
+                Write-Bold "Fetching basic information about all available windows servers i.e., 2008, 2012, 2016 ..."
                 $winServersList=Get-ADComputer -Filter * -Properties * | select SamAccountName, IPv4Address, OperatingSystem | Select-String "Windows Server"
                 Write-Output $winServersList
             } 
@@ -209,7 +209,7 @@ while ($true) {
         }
 
         '9' {
-             Write-Bold "Press 'd' for detailed info or press Enter to list only user accounts/groups"
+             Write-Bold "Press 'd' for detailed info OR press Enter to list only user accounts/groups"
              $condition=Read-Host -Prompt ">"
              #$condition=Read-Host -Prompt "Press 'd' for detailed info or press Enter to list only user accounts/groups"
              
