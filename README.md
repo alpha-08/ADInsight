@@ -10,6 +10,7 @@ SOC analyst or administrators can use since they're on defending side, to identi
 
 ![image](https://github.com/user-attachments/assets/11a75166-c084-4fef-8431-d3ba1898d19a)
 
-**Note:** Running it first time, you may need to run below command for powershell execution policy bypass before you execute the script:
+**Note:** Running it first time, you may need to run below command for powershell execution policy bypass before you execute the scrip. Any suggesionts/queries related to its use, don't hesitate to ask me at **linkedin.com/in/rao-shahzeb-haider-ab2393182**
 
 powershell -ep bypass
+
