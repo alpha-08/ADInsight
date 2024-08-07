@@ -13,4 +13,5 @@ SOC analyst or administrators can use since they're on defending side, to identi
 
 
 **Note:** Running it first time, you may need to run below command for powershell execution policy bypass before you execute the script:
+
 powershell -ep bypass
