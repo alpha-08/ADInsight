@@ -89,7 +89,7 @@ while ($true) {
             Write-Output $groupMembers
         }
         '4' {
-             Write-Bold "For details press 'd' OR press Enter to go with only account names"
+             Write-Bold "For details press 'd' or press Enter to go with only account names"
              $condition=Read-Host -Prompt ">"
              
              Write-Output " "
@@ -104,19 +104,23 @@ while ($true) {
             }
 
             Write-Output " "
-            Write-Output "Note: Remember that only the users, associated with any SPN, are vulnerable to Kerberoasting Attack and very helpful in lateral movements within the network once an attacker gets initial access. If you cannot disable SPN with any user due to work requirements, make the password long and complex so that the password cannot be break with hashcat or other cracking tools"
+            Write-Output "Note: Kerberoasting targets service accounts that have Service Principal Names (SPNs) associated with them and very helpful in lateral movements within the network once an attacker gets initial access. If you cannot disable SPN with any user due to work requirements, make the password long and complex so that the password cannot be break with hashcat or other cracking tools"
+            Write-Output "Vulnerability: Service accounts with weak passwords are susceptible to Kerberoasting because their service tickets can be cracked relatively easily."
+            Write-Output "Tools: Rubeus and Impacket can be used to perform Kerberoasting attacks"
 
         Write-Output " "
         }
         '5' {
             
-            Write-Output "Note: User accounts with the flag set 'Do not require Kerberos preauthentication' can expose service account password. To get more info, visit: https://medium.com/@haidershahzeb08/as-rep-roasting-74a958b1bedf"
+            Write-Output "Note: ASREPRoasting targets user accounts that have the property 'Do not require Kerberos preauthentication' enabled. To get more info, visit: https://medium.com/@haidershahzeb08/as-rep-roasting-74a958b1bedf"
+            Write-Output "User accounts without preauthentication enabled and with weak passwords are susceptible because their AS-REP responses can be cracked relatively easily"
+            Write-Output "Tools: Rubeus and Impacket can be used to perform ASREPRoasting attacks."
             Write-Output "Fetching ASReprostable Accounts Info..."
             $ASreproastable = Get-ADUser -Filter * -Properties DoesNotRequirePreAuth | Where-Object { $_.DoesNotRequirePreAuth -eq $true}
             Write-Output $ASreproastable
         }
         '6' {
-            Write-Bold "Press 'd' for detailed info about all computers OR Enter specific computer Name"
+            Write-Bold "Press 'd' for detailed info about all computers or Enter specific computer Name"
             $compAccCondition=Read-Host -Prompt ">"
              
              Write-Output " "
@@ -133,12 +137,12 @@ while ($true) {
             }
 
             Write-Output " "
-            Write-Output " "
+            Write-Output "Note: Put the notes here for ASReproasting"
 
         Write-Output " "
         }
         '7' {
-            Write-Bold "Press 'd' for all users account details OR enter specific user name"
+            Write-Bold "For all user account details press 'd' or enter specific user name"
             $userAccCondition=Read-Host -Prompt ">"
              
              Write-Output " "
@@ -158,13 +162,13 @@ while ($true) {
         Write-Output " "
         }
         '8' {
-            Write-Bold "Press 'A' to get a list of all Windows Servers OR enter specific version i.e., 2008, 2012, 2016 .."
+            Write-Bold "To get a list of all Windows Servers, press 'A' or enter specific version '2008, 2012, 2016 etc"
             $allServers=Read-Host -Prompt ">"
              
              Write-Output " "
 
             if ($allServers -eq 'A') {
-                Write-Bold "Fetching basic information about all available windows servers i.e., 2008, 2012, 2016 ..."
+                Write-Bold "Fetching basic information about all available windows servers i.e., 2008, 2012, 2016 etc"
                 $winServersList=Get-ADComputer -Filter * -Properties * | select SamAccountName, IPv4Address, OperatingSystem | Select-String "Windows Server"
                 Write-Output $winServersList
             } 
@@ -209,7 +213,7 @@ while ($true) {
         }
 
         '9' {
-             Write-Bold "Press 'd' for detailed info OR press Enter to list only user accounts/groups"
+             Write-Bold "Press 'd' for detailed info or press Enter to list only user accounts/groups"
              $condition=Read-Host -Prompt ">"
              #$condition=Read-Host -Prompt "Press 'd' for detailed info or press Enter to list only user accounts/groups"
              
@@ -229,6 +233,7 @@ while ($true) {
             Write-Output " "
             Write-Bold "Note"
             Write-Output "AdminSDHolder Object is used to protect high privilege accounts.\n In case of DA is compromised, an attacker can provide full privileges to any compromised user account without adding it to the domain admin group because DA accounts are often investigated/auditd and remains undetected unless ACLs are investigated."
+            Write-Output "Read Article here: https://adsecurity.org/?p=1906"
 
         Write-Output " "
         }
