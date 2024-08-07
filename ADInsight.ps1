@@ -21,9 +21,11 @@
 
 Write-Output "Desired files are being downloaded.."
 
-# Download files
+# Downloaded files original source: https://github.com/samratashok/ADModule/blob/master/Import-ActiveDirectory.ps1
+
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/alpha-08/ADEnum/master/admod.ps1" -OutFile "admod.ps1"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/alpha-08/ADEnum/master/Microsoft.ActiveDirectory.Management.dll" -OutFile "Microsoft.ActiveDirectory.Management.dll"
+
 
 Write-Output " "
 Write-Output "Status: 200 OK"
