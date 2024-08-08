@@ -74,7 +74,11 @@ while ($true) {
     # Process user input
     switch ($userInput) {
         '1' {
+            Write-Bold "Enter Domain Controller IP address OR press Enter to go with the default info"
+            Read-Host -Prompt ">"
+            Write-Host " "
             Write-Output "Fetching Domain Controller Info..."
+            Write-Host " "
             $domainControllers = Get-ADDomainController
             Write-Output $domainControllers
         }
