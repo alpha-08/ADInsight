@@ -55,15 +55,16 @@ while ($true) {
 
     Write-Output "-------------------------------------------------------------------------------------------------------"
 
-    Write-Bold "1. Domain Controller Info"
-    Write-Bold "2. Groups Info"
-    Write-Bold "3. Group Members Info"
-    Write-Bold "4. Kerberoastable Accounts"
-    Write-Bold "5. ASReproastable Accounts"
-    Write-Bold "6. All Computer Accounts Info"
+    Write-Bold "1. Forest Info"
+    Write-Bold "2. Domain Controller Info"
+    Write-Bold "3. Groups Info"
+    Write-Bold "4. Group Members Info"
+    Write-Bold "5. Kerberoastable Accounts"
+    Write-Bold "6. ASReproastable Accounts"
+    Write-Bold "7. All Computer Accounts Info"
     Write-Bold "7. All User Accounts Info"
     Write-Bold "8. All available Windows Servers Info"
-    Write-Bold "9. All Users/Groups protected by AdminSDHolder"
+    Write-Bold "10. All Users/Groups protected by AdminSDHolder"
     Write-Output "   Ctrl+C to exit"
 
     # Prompt user for input
@@ -73,7 +74,31 @@ while ($true) {
     Write-Output " "
     # Process user input
     switch ($userInput) {
+        
+
         '1' {
+
+            Write-Bold "Enter Forest name <xyz.com/edu> OR press Enter to go with the default info"
+            $condition=Read-Host -Prompt ">"
+            if ([string]::IsNullOrEmpty($condition)){
+
+                $defaultForestInfo=Get-ADForest
+                Write-Output $defaultForestInfo
+                
+            } else {
+                
+#                $getForestName = Read-Host -Prompt "Forest Name"
+                
+                try {
+                    $ForestName=Get-ADForest -Identity $condition
+                    Write-Output $ForestName
+                } catch {
+                    Write-Host "Error: Unable to retrieve forest information for $condition" -ForegroundColor Red
+                }
+             }
+         }
+        '2' {
+            
             Write-Bold "Enter Domain Controller IP address OR press Enter to go with the default info"
             Read-Host -Prompt ">"
             Write-Host " "
@@ -82,19 +107,19 @@ while ($true) {
             $domainControllers = Get-ADDomainController
             Write-Output $domainControllers
         }
-        '2' {
+        '3' {
             Write-Output "Fetching AD Group Info..."
             $adGroups = Get-ADGroup -Filter *
             Write-Output $adGroups > adgroups.txt
             Write-Output "adgroups info saved to disk as 'adgroups.txt'"
         }
-        '3' {
+        '4' {
             Write-Output "Fetching AD Group Members Info..."
             $groupName = Read-Host -Prompt "Enter the group name"
             $groupMembers = Get-ADGroupMember -Identity $groupName
             Write-Output $groupMembers
         }
-        '4' {
+        '5' {
              Write-Bold "For details press 'd' or press Enter to go with only account names"
              $condition=Read-Host -Prompt ">"
              
@@ -116,7 +141,7 @@ while ($true) {
 
         Write-Output " "
         }
-        '5' {
+        '6' {
             
             Write-Output "Note: ASREPRoasting targets user accounts that have the property 'Do not require Kerberos preauthentication' enabled. To get more info, visit: https://medium.com/@haidershahzeb08/as-rep-roasting-74a958b1bedf"
             Write-Output "User accounts without preauthentication enabled and with weak passwords are susceptible because their AS-REP responses can be cracked relatively easily"
@@ -125,7 +150,7 @@ while ($true) {
             $ASreproastable = Get-ADUser -Filter * -Properties DoesNotRequirePreAuth | Where-Object { $_.DoesNotRequirePreAuth -eq $true}
             Write-Output $ASreproastable
         }
-        '6' {
+        '7' {
             Write-Bold "Press 'd' for detailed info about all computers or Enter specific computer Name"
             $compAccCondition=Read-Host -Prompt ">"
              
@@ -147,7 +172,7 @@ while ($true) {
 
         Write-Output " "
         }
-        '7' {
+        '8' {
             Write-Bold "For all user account details press 'd' or enter specific user name"
             $userAccCondition=Read-Host -Prompt ">"
              
@@ -167,7 +192,7 @@ while ($true) {
 
         Write-Output " "
         }
-        '8' {
+        '9' {
             Write-Bold "To get a list of all Windows Servers, press 'A' or enter specific version '2008, 2012, 2016 etc"
             $allServers=Read-Host -Prompt ">"
              
@@ -218,7 +243,7 @@ while ($true) {
         Write-Output " "
         }
 
-        '9' {
+        '10' {
              Write-Bold "Press 'd' for detailed info or press Enter to list only user accounts/groups"
              $condition=Read-Host -Prompt ">"
              #$condition=Read-Host -Prompt "Press 'd' for detailed info or press Enter to list only user accounts/groups"
