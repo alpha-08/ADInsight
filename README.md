@@ -8,7 +8,8 @@ SOC analyst or administrators can use since they're on defending side, to identi
 **Example Use:**
 .\ADInsight.ps1
 
-![image](https://github.com/user-attachments/assets/11a75166-c084-4fef-8431-d3ba1898d19a)
+![image](https://github.com/user-attachments/assets/93f089e5-7b4f-4685-b9d7-bba58b4225ca)
+
 
 **Note:** Running it first time, you may need to run below command for powershell execution policy bypass before you execute the scrip. Any suggesionts/queries related to its use, don't hesitate to ask me at **linkedin.com/in/rao-shahzeb-haider-ab2393182**
 
