@@ -62,8 +62,8 @@ while ($true) {
     Write-Bold "5. Kerberoastable Accounts"
     Write-Bold "6. ASReproastable Accounts"
     Write-Bold "7. All Computer Accounts Info"
-    Write-Bold "7. All User Accounts Info"
-    Write-Bold "8. All available Windows Servers Info"
+    Write-Bold "8. All User Accounts Info"
+    Write-Bold "9. All available Windows Servers Info"
     Write-Bold "10. All Users/Groups protected by AdminSDHolder"
     Write-Output "   Ctrl+C to exit"
 
