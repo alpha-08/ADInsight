@@ -28,6 +28,6 @@ Step 3: Import-Module .\admod.ps1
 
 Step 4: Import-ActiveDirectory -ActiveDirectoryModule .\Microsoft.ActiveDirectory.Management.dll 
 
-*#** now run ADInsight.ps1 again 
+**#** now run ADInsight.ps1 again 
 
 Step5: .\ADInsight.ps1
