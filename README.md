@@ -26,5 +26,7 @@ https://github.com/samratashok/ADModule/blob/master/Microsoft.ActiveDirectory.Ma
 You need to download both of above in order to run the ActiveDirectory module.
 
 Import-Module .\admod1.ps1
+
+
 Import-ActiveDirectory -ActiveDirectoryModule .\Microsoft.ActiveDirectory.Management.dll
 
