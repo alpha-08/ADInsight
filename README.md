@@ -16,17 +16,18 @@ SOC analyst or administrators can use since they're on defending side, to identi
 powershell -ep bypass
 
 -------------------------------------------------------------------------------------
-If you still found difficulty to run the ADInsight, then follow this manual process and then run ./ADInsight.ps1
+# If you still found difficulty to run the ADInsight, then follow this manual process and then run ./ADInsight.ps1
 
-Download ADModule here:
-https://raw.githubusercontent.com/samratashok/ADModule/master/Import-ActiveDirectory.ps1
-and then download this dll below:
-https://github.com/samratashok/ADModule/blob/master/Microsoft.ActiveDirectory.Management.dll
+Step 1: powershell -ep bypass
 
-You need to download both of above in order to run the ActiveDirectory module.
+Step 2: .\ADInsight.ps1
 
-Import-Module .\admod1.ps1
+# step 2 will download admod.ps1 and Microsoft.ActiveDirectory.Management.dll even if it runs or not.
 
+Step 3: Import-Module .\admod.ps1
 
-Import-ActiveDirectory -ActiveDirectoryModule .\Microsoft.ActiveDirectory.Management.dll
+Step 4: Import-ActiveDirectory -ActiveDirectoryModule .\Microsoft.ActiveDirectory.Management.dll 
 
+# now run ADInsight.ps1 again 
+
+Step5: .\ADInsight.ps1
