@@ -19,7 +19,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-Write-Output "Desired files are being downloaded.."
+Write-Output "ADInsight is being loaded.."
 
 # Downloaded files original source: https://github.com/samratashok/ADModule/blob/master/Import-ActiveDirectory.ps1
 
