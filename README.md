@@ -22,12 +22,12 @@ Step 1: powershell -ep bypass
 
 Step 2: .\ADInsight.ps1
 
-# step 2 will download admod.ps1 and Microsoft.ActiveDirectory.Management.dll even if it runs or not.
+#step 2 will download admod.ps1 and Microsoft.ActiveDirectory.Management.dll even if it runs or not.
 
 Step 3: Import-Module .\admod.ps1
 
 Step 4: Import-ActiveDirectory -ActiveDirectoryModule .\Microsoft.ActiveDirectory.Management.dll 
 
-# now run ADInsight.ps1 again 
+#now run ADInsight.ps1 again 
 
 Step5: .\ADInsight.ps1
