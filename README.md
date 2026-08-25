@@ -1,5 +1,5 @@
 # ADInsight
-This tool/script that can gather a lot of info without any defender alerts since it leverages the built-in windows ADModule. It is useful for Penetration testers, SOC Analysts or System administrators depends how they use it. Try it on a domain joined windows client or server with the internet connectivity.
+PowerShell-based Active Directory security assessment tool for enumerating domain configurations and identifying common security exposures since it leverages the built-in windows ADModule. It is useful for Penetration testers, SOC Analysts or System administrators depends how they use it. Try it on a domain joined windows client or server with the internet connectivity.
 
 Pentesters can use it for enumeration purposes, finding Kerberoastable, AsRepRoastable accounts if they've initial access to domain joined PC
 
